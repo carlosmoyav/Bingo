@@ -11,7 +11,7 @@ premio.premio_id,
 premio.premio_nombre,
 jugador.jugador_nombre
 from premiacion_line
-inner join public.jugador on jugador.jugador_id=premiacion_line.premiacion_id
+inner join public.jugador on jugador.jugador_id=premiacion_line.jugador_id
 inner join public.premio on premio.premio_id=premiacion_line.premio_id
 where premio.premio_nombre='iPhone 12'
 
