@@ -1,26 +1,3 @@
-/*==============================================================*/
-/* DBMS name:      PostgreSQL 8                                 */
-/* Created on:     13/12/2020 3:10:13                           */
-/*==============================================================*/
-
-
-drop table ASOCIADO;
-
-drop table CARGO;
-
-drop table JUGADOR;
-
-drop table JUGADOR_PARTIDA;
-
-drop table LUGAR;
-
-drop table PARTIDA;
-
-drop table PREMIACION_LINE;
-
-drop table PREMIO;
-
-drop table TABLA;
 
 /*==============================================================*/
 /* Table: ASOCIADO                                              */
