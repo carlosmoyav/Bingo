@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportebingo" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6c29822f-b8eb-4416-8614-f759bf6309b4">
+	<property name="ireport.zoom" value="1.4641000000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="72"/>
+	<queryString>
+		<![CDATA[SELECT jugador.jugador_nombre, jugador.jugador_apellido, jugador.jugador_telefono,
+jugador.jugador_direccion, premio.premio_nombre, premio.premio_descripcion,
+premiacion_line.partida_id
+FROM premiacion_line
+INNER JOIN premio ON premio.premio_id = premiacion_line.premio_id
+INNER JOIN jugador ON jugador.jugador_id = premiacion_line.jugador_id]]>
+	</queryString>
+	<field name="jugador_nombre" class="java.lang.String"/>
+	<field name="jugador_apellido" class="java.lang.String"/>
+	<field name="jugador_telefono" class="java.lang.Integer"/>
+	<field name="jugador_direccion" class="java.lang.String"/>
+	<field name="premio_nombre" class="java.lang.String"/>
+	<field name="premio_descripcion" class="java.lang.String"/>
+	<field name="partida_id" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="195" y="11" width="157" height="30" uuid="6bff6ced-a4ee-4e72-9a50-a324900c6b21"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[REPORTE BINGO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="102" splitType="Stretch">
+			<staticText>
+				<reportElement x="41" y="17" width="100" height="20" uuid="9d9c6f0e-4e7c-4ec6-831a-68ac757d8902"/>
+				<text><![CDATA[Reporte #00042]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="424" y="17" width="100" height="20" uuid="0b5c61a7-31f3-4f90-9822-b0f883acc353"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="376" y="17" width="100" height="20" uuid="a98b2a69-3033-4429-a521-5190450a3ba5"/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="37" width="141" height="20" uuid="875444d2-35f2-430b-920d-a704a95bb65b"/>
+				<text><![CDATA[Lugar: BARRIO CORDOVA]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement x="82" y="30" width="137" height="20" uuid="dd766a19-190a-4856-9d9d-42a3ae7d6a61"/>
+				<text><![CDATA[DATOS DEL GANADOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-18" y="30" width="59" height="20" uuid="bcd38077-3f34-4029-8a05-e56bf9b49607"/>
+				<text><![CDATA[ID PARTIDA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="424" y="30" width="151" height="20" uuid="5d5a970a-2192-44c3-acc5-1581a44cb13f"/>
+				<text><![CDATA[DESCRIPCIÓN DEL PREMIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="292" y="30" width="116" height="20" uuid="d53fb0d5-46a9-4da8-a0d7-dc6bf47833d1"/>
+				<text><![CDATA[NOMBRE DEL PREMIO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="100" splitType="Stretch">
+			<textField>
+				<reportElement x="82" y="17" width="100" height="20" uuid="5e4bf0b1-2798-440c-85bc-e23d7a571023"/>
+				<textFieldExpression><![CDATA[$F{jugador_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="37" width="78" height="20" uuid="e507f998-1ddd-450c-8d11-3b824afdb72e"/>
+				<textFieldExpression><![CDATA[$F{jugador_apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="57" width="63" height="20" uuid="5a94f4f7-6f6c-4e0a-9e40-c51c86a13b53"/>
+				<textFieldExpression><![CDATA[$F{jugador_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="77" width="100" height="20" uuid="029546d3-bc9d-434f-8555-cb64c0276df8"/>
+				<textFieldExpression><![CDATA[$F{jugador_direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="17" width="29" height="20" uuid="62c05b78-4c3c-43c5-a21f-f9e9528fe733"/>
+				<textFieldExpression><![CDATA[$F{partida_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="424" y="17" width="100" height="20" uuid="157a3e27-ee08-4a31-a11e-85f6df5575af"/>
+				<textFieldExpression><![CDATA[$F{premio_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="308" y="17" width="100" height="20" uuid="2c509a65-f9a2-4f4d-b832-4e0939b17d58"/>
+				<textFieldExpression><![CDATA[$F{premio_nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="265" y="34" width="70" height="20" uuid="45b8fbb5-d461-45ed-95e2-c1def277e8cd"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
